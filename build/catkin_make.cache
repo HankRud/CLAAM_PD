@@ -1,0 +1,2 @@
+forklift_simulator:multi_pallet_detection:realsense_gazebo_plugin
+-DCATKIN_DEVEL_PREFIX=/home/hnk/auto_forklift_pallet_detection/devel -DCMAKE_INSTALL_PREFIX=/home/hnk/auto_forklift_pallet_detection/install -G Unix Makefiles

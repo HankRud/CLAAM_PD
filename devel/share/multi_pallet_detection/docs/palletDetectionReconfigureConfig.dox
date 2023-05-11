@@ -1,0 +1,33 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~min_x_cutoff" : \b [double] min x distance (m) min: -2.0, default: -1.2, max: 0.0
+- \b "~max_x_cutoff" : \b [double] max x distance (m) min: 0.0, default: 1.2, max: 2.0
+- \b "~min_y_cutoff" : \b [double] min y distance (m) min: -0.8, default: 0.0, max: 0.4
+- \b "~max_y_cutoff" : \b [double] max y distance (m) min: 0.2, default: 2.0, max: 2.0
+- \b "~min_z_cutoff" : \b [double] min z distance (m) min: 0.0, default: 0.2, max: 1.2
+- \b "~max_z_cutoff" : \b [double] max z distance (m) min: 1.2, default: 1.7, max: 3.5
+- \b "~downsample_scale" : \b [int] downsample scale min: 1, default: 2, max: 5
+- \b "~active_remove_floor" : \b [bool] remove floor or not min: False, default: True, max: True
+- \b "~floor_distance_thresh" : \b [double] floor distance thresh min: 0.0, default: 0.03, max: 1.0
+- \b "~active_segment" : \b [bool] remove floor or not min: False, default: True, max: True
+- \b "~opencv_show" : \b [bool] opencv show min: False, default: False, max: True
+- \b "~min_cluster_size" : \b [int] min cluster size min: 0, default: 5000, max: 10000
+- \b "~max_cluster_size" : \b [int] max cluster size min: 10000, default: 100000, max: 1000000
+- \b "~neighbor_number" : \b [int] neighbor number min: 10, default: 100, max: 200
+- \b "~smooth_thresh" : \b [double] angle (deg) smooth thresh min: 0.0, default: 10.0, max: 20.0
+- \b "~curvature_thres" : \b [double] curvature thres min: 0.0, default: 5.0, max: 20.0
+- \b "~k_search" : \b [int] k search min: 0, default: 50, max: 500
+- \b "~template_matching_show" : \b [bool] show opencv template matching window min: False, default: False, max: True
+- \b "~match_method" : \b [int] match method min: 0, default: 0, max: 4
+- \b "~manual_scale" : \b [bool] manual scale set for template min: False, default: False, max: True
+- \b "~scale_par" : \b [double] manual set for scale parameter of template min: 0.1, default: 1.0, max: 6.0
+- \b "~min_scale" : \b [double] min scale of auto set scale mode min: 0.1, default: 0.9, max: 2.3
+- \b "~max_scale" : \b [double] max scale of auto set scale mode min: 1.1, default: 1.6, max: 6.0
+- \b "~thres" : \b [double] threshold min: 0.0, default: 1.5, max: 10.0
+- \b "~change_thres" : \b [double] optimal scale change threshold min: 0.1, default: 0.2, max: 1.0
+- \b "~scale_change_rate" : \b [double] scale change rate min: 0.01, default: 0.01, max: 0.5
+- \b "~process_noise" : \b [double] process noise min: 0.001, default: 0.001, max: 0.2
+- \b "~measure_noise" : \b [double] measure noise min: 0.001, default: 0.02, max: 0.2
+

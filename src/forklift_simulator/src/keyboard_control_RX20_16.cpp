@@ -36,10 +36,10 @@ int main(int argc, char **argv)
     ros::NodeHandle node_handler;
     std::string robot_model_name = "/RX20_16";
 
-    // ros::Publisher left_joint_pub = node_handler.advertise<std_msgs::Float64>(robot_model_name + "/wheel_left_driving_joint_controller/command", 1000);
-    // ros::Publisher right_joint_pub = node_handler.advertise<std_msgs::Float64>(robot_model_name + "/wheel_right_driving_joint_controller/command", 1000);
-    // ros::Publisher left_steer_pub = node_handler.advertise<std_msgs::Float64>(robot_model_name + "/wheel_left_steering_joint_controller/command", 1000);
-    // ros::Publisher right_steer_pub = node_handler.advertise<std_msgs::Float64>(robot_model_name + "/wheel_right_steering_joint_controller/command", 1000);
+     ros::Publisher left_joint_pub = node_handler.advertise<std_msgs::Float64>(robot_model_name + "/wheel_left_driving_joint_controller/command", 1000);
+     ros::Publisher right_joint_pub = node_handler.advertise<std_msgs::Float64>(robot_model_name + "/wheel_right_driving_joint_controller/command", 1000);
+     ros::Publisher left_steer_pub = node_handler.advertise<std_msgs::Float64>(robot_model_name + "/wheel_left_steering_joint_controller/command", 1000);
+     ros::Publisher right_steer_pub = node_handler.advertise<std_msgs::Float64>(robot_model_name + "/wheel_right_steering_joint_controller/command", 1000);
     ros::Publisher cmd_vel_pub = node_handler.advertise<geometry_msgs::Twist>("/cmd_vel", 1000);
     ros::Publisher fork_tilt_joint_pub = node_handler.advertise<std_msgs::Float64>(robot_model_name + "/tilt_joint_controller/command", 1000);
     ros::Publisher fork_lift_joint_pub = node_handler.advertise<std_msgs::Float64>(robot_model_name + "/lift_joint_controller/command", 1000);
@@ -59,10 +59,10 @@ int main(int argc, char **argv)
     float forklift_sideshift_step = 0.05;
     float steer_limit = 1.0;
 
-    // std_msgs::Float64 left_joint_msgs;
-    // std_msgs::Float64 right_joint_msgs;
-    // std_msgs::Float64 left_steer_msgs;
-    // std_msgs::Float64 right_steer_msgs;
+     std_msgs::Float64 left_joint_msgs;
+     std_msgs::Float64 right_joint_msgs;
+     std_msgs::Float64 left_steer_msgs;
+     std_msgs::Float64 right_steer_msgs;
     geometry_msgs::Twist cmd_vel_msgs;
     std_msgs::Float64 forklift_tilt_msgs;
     std_msgs::Float64 forklift_lift_msgs;
@@ -133,10 +133,10 @@ int main(int argc, char **argv)
         default:
             break;
         }
-        // left_joint_msgs.data = -drive_speed;
-        // right_joint_msgs.data = -drive_speed;
-        // left_steer_msgs.data = -steer_angle;
-        // right_steer_msgs.data = -steer_angle;
+         left_joint_msgs.data = -drive_speed;
+         right_joint_msgs.data = -drive_speed;
+         left_steer_msgs.data = -steer_angle;
+         right_steer_msgs.data = -steer_angle;
         cmd_vel_msgs.linear.x = drive_speed;
         cmd_vel_msgs.angular.z = steer_angle;
         forklift_lift_msgs.data = forklift_lift;
@@ -149,10 +149,10 @@ int main(int argc, char **argv)
         std::cout << "moving with speed " << drive_speed;
         std::cout << "   steering angle " << steer_angle << std::endl;
         std::cout << "   ------------- " << std::endl;
-        // left_joint_pub.publish(left_joint_msgs);
-        // right_joint_pub.publish(right_joint_msgs);
-        // left_steer_pub.publish(left_steer_msgs);
-        // right_steer_pub.publish(right_steer_msgs);
+         left_joint_pub.publish(left_joint_msgs);
+         right_joint_pub.publish(right_joint_msgs);
+         left_steer_pub.publish(left_steer_msgs);
+         right_steer_pub.publish(right_steer_msgs);
         cmd_vel_pub.publish(cmd_vel_msgs);
         fork_lift_joint_pub.publish(forklift_lift_msgs);
         fork_tilt_joint_pub.publish(forklift_tilt_msgs);

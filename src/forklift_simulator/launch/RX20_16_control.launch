@@ -9,13 +9,14 @@
 					  tilt_joint_controller
 					  lift_joint_controller
 					  sideshift_joint_controller
-            "/>
-
-            <!-- wheel_left_steering_joint_controller
+					    wheel_left_steering_joint_controller
             wheel_right_steering_joint_controller
             wheel_left_driving_joint_controller
-            wheel_right_driving_joint_controller -->
+            wheel_right_driving_joint_controller
 
+            "/>
+
+          
   <!-- convert joint states to TF transforms for rviz, etc -->
   <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
 	respawn="false" output="screen">

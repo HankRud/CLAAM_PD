@@ -1,0 +1,8 @@
+prefix=/home/hnk/auto_forklift_pallet_detection/devel
+
+Name: forklift_simulator
+Description: Description of forklift_simulator
+Version: 0.10.2
+Cflags: 
+Libs: -L${prefix}/lib -lforklift_simulator
+Requires: roscpp rospy std_msgs

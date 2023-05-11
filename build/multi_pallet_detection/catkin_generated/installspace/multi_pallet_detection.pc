@@ -1,0 +1,8 @@
+prefix=/home/hnk/auto_forklift_pallet_detection/install
+
+Name: multi_pallet_detection
+Description: Description of multi_pallet_detection
+Version: 0.0.1
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lmulti_pallet_detection
+Requires: 

@@ -31,7 +31,7 @@
       args="-urdf -model forklift -y 0.0 -z 0.5 -param robot_description"/>
   
     <!-- ros_control robot launch file -->
-    <!-- <include file="$(find forklift_simulator)/launch/forklift_control.launch"></include> -->
+     <!--<include file="$(find forklift_simulator)/launch/forklift_control.launch"></include> -->
     <include file="$(find forklift_simulator)/launch/RX20_16_control.launch"></include>
   
   </launch>
