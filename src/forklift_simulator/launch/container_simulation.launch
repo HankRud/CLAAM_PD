@@ -10,7 +10,7 @@
 
 		</node>
   
-    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    <node name="urdf_spawner1" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
       args="-urdf -x 3 -y 0 -z 0.3 -Y 1.57 -model blue_container -param robot_description"/>
   
     <!-- ros_control robot launch file -->
