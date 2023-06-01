@@ -36,10 +36,10 @@ int main(int argc, char **argv)
     ros::NodeHandle node_handler;
     std::string robot_model_name = "/RX20_16";
 
-     ros::Publisher left_joint_pub = node_handler.advertise<std_msgs::Float64>(robot_model_name + "/wheel_left_driving_joint_controller/command", 1000);
-     ros::Publisher right_joint_pub = node_handler.advertise<std_msgs::Float64>(robot_model_name + "/wheel_right_driving_joint_controller/command", 1000);
-     ros::Publisher left_steer_pub = node_handler.advertise<std_msgs::Float64>(robot_model_name + "/wheel_left_steering_joint_controller/command", 1000);
-     ros::Publisher right_steer_pub = node_handler.advertise<std_msgs::Float64>(robot_model_name + "/wheel_right_steering_joint_controller/command", 1000);
+    ros::Publisher left_joint_pub = node_handler.advertise<std_msgs::Float64>(robot_model_name + "/wheel_left_driving_joint_controller/command", 1000);
+    ros::Publisher right_joint_pub = node_handler.advertise<std_msgs::Float64>(robot_model_name + "/wheel_right_driving_joint_controller/command", 1000);
+    ros::Publisher left_steer_pub = node_handler.advertise<std_msgs::Float64>(robot_model_name + "/wheel_left_steering_joint_controller/command", 1000);
+    ros::Publisher right_steer_pub = node_handler.advertise<std_msgs::Float64>(robot_model_name + "/wheel_right_steering_joint_controller/command", 1000);
     ros::Publisher cmd_vel_pub = node_handler.advertise<geometry_msgs::Twist>("/cmd_vel", 1000);
     ros::Publisher fork_tilt_joint_pub = node_handler.advertise<std_msgs::Float64>(robot_model_name + "/tilt_joint_controller/command", 1000);
     ros::Publisher fork_lift_joint_pub = node_handler.advertise<std_msgs::Float64>(robot_model_name + "/lift_joint_controller/command", 1000);
@@ -133,10 +133,10 @@ int main(int argc, char **argv)
         default:
             break;
         }
-         left_joint_msgs.data = -drive_speed;
-         right_joint_msgs.data = -drive_speed;
-         left_steer_msgs.data = -steer_angle;
-         right_steer_msgs.data = -steer_angle;
+        left_joint_msgs.data = -drive_speed;
+        right_joint_msgs.data = -drive_speed;
+        left_steer_msgs.data = -steer_angle;
+        right_steer_msgs.data = -steer_angle;
         cmd_vel_msgs.linear.x = drive_speed;
         cmd_vel_msgs.angular.z = steer_angle;
         forklift_lift_msgs.data = forklift_lift;

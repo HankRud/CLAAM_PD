@@ -1,10 +1,10 @@
-RX20_16:
+
   # Publish all joint states -----------------------------------
-  joint_state_controller:
-    type: joint_state_controller/JointStateController
-    publish_rate: 50  
+  joint_state_publisher:
+    type: "joint_state_controller/JointStateController"
+    publish_rate: 30
   
-  # Position Controllers ---------------------------------------
+
   tilt_joint_controller:
     type: effort_controllers/JointPositionController
     joint: tilt_joint
@@ -25,48 +25,41 @@ RX20_16:
     joint: pris_joint
     pid: {p: 200.0, i: 0.5, d: 1.0}
 
-  wheel_left_steering_joint_controller:
-    type: effort_controllers/JointPositionController
-    joint: wheel_left_steering_joint
-    pid: {p: 200.0, i: 0.0, d: 1.0}
 
-  wheel_right_steering_joint_controller:
+  rear_left_steer_joint_controller:
     type: effort_controllers/JointPositionController
-    joint: wheel_right_steering_joint
-    pid: {p: 200.0, i: 0.0, d: 1.0}
+    joint: rear_left_steer_joint
+    pid: 
+       p: 3.0 
+       i: 0.2
+       d: 1.0
+       
 
-  wheel_left_joint_controller:
-    type: effort_controllers/JointVelocityController
-    joint: wheel_left_joint
-    pid:
-      p: 20.0
-      i: 0.0
-      d: 0.0
-      i_clamp: 1000.0
+  rear_right_steer_joint_controller:
+    type: effort_controllers/JointPositionController
+    joint: rear_right_steer_joint
+    pid:  
+      p: 3.0 
+      i: 0.2
+      d: 1.0
       
-  wheel_left_driving_joint_controller:
-    type: effort_controllers/JointVelocityController
-    joint: wheel_left_driving_joint
-    pid:
-      p: 20.0
+  wheel_front_left_driving_joint_controller:
+   type: effort_controllers/JointVelocityController
+   joint: wheel_front_left_driving_joint
+   pid:
+      p: 20.0 
       i: 0.0
-      d: 0.0
-      i_clamp: 1000.0
-      
-  wheel_right_joint_controller:
-    type: effort_controllers/JointVelocityController
-    joint: wheel_right_joint
-    pid:
-      p: 20.0
+      d: 0.0 
+      iclamp: 1000.0
+  wheel_front_right_driving_joint_controller:
+   type: effort_controllers/JointVelocityController
+   joint: wheel_front_right_driving_joint
+   pid:
+      p: 20.0 
       i: 0.0
-      d: 0.0
-      i_clamp: 1000.0
-      
-  wheel_right_driving_joint_controller:
-    type: effort_controllers/JointVelocityController
-    joint: wheel_right_driving_joint
-    pid:
-      p: 20.0
-      i: 0.0
-      d: 0.0
-      i_clamp: 1000.0
+      d: 0.0 
+      iclamp: 1000.0
+     
+
+
+

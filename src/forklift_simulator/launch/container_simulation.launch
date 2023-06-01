@@ -18,3 +18,93 @@
   
   </launch>
   
+<?xml version="1.0"?>
+<launch>
+    <arg name="paused" default="false"/>
+    <arg name="use_sim_time" default="true"/>
+    <arg name="gui" default="true"/>
+    <arg name="headless" default="false"/>
+    <arg name="debug" default="false"/>
+    <arg name="namespace" default="/RX20_16" />
+    <arg name="roll" default="0.0"/>
+    <arg name="pitch" default="0.0"/>
+    <arg name="yaw" default="0.0"/>
+  
+  <group ns= "$(arg namespace)">
+
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+      <arg name="world_name" value="$(find forklift_simulator)/worlds/empty.world"/>
+      <arg name="debug" value="$(arg debug)" />
+      <arg name="gui" value="$(arg gui)" />
+      <arg name="paused" value="$(arg paused)"/>
+      <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    
+    </include>
+
+  
+    <param name="robot_description"
+        command="$(find xacro)/xacro '$(find forklift_simulator)/urdf/RX20_16/main.xacro'" />
+    
+
+      <!--node name="map_server" pkg="map_server" type="map_server" args="map_file_path" />-->
+   
+      <!-- Load joint controller configurations from YAML file to parameter server -->
+      <rosparam file="$(find forklift_simulator)/config/steer_bot_hardware_gazebo.yaml" command="load" ns="/RX20_16"/>  
+      <rosparam file="$(find forklift_simulator)/config/ackerman_steer.yaml" command="load" ns="/RX20_16"/>  
+      <rosparam file="$(find forklift_simulator)/config/pids.yaml" command="load" ns="/RX20_16"/>  
+      <rosparam file="$(find forklift_simulator)/config/RX20_16_control.yaml" command="load" ns="/RX20_16"/>
+      <rosparam file="$(find forklift_simulator)/config/EVX_14_control.yaml" command="load" ns="/RX20_16"/>
+      <node pkg="controller_manager" type="spawner" name="controller_spawner" ns = "/RX20_16"
+        args="mobile_base_controller joint_state_publisher tilt_joint_controller lift_joint_controller sideshift_joint_controller
+             wheel_front_left_driving_joint_controller 
+        wheel_front_right_driving_joint_controller 
+        rear_left_steer_joint_controller
+        rear_right_steer_joint_controller"
+        respawn ="false" output="screen"/>
+
+   
+
+      <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+        <param name="publish_frequency" value="50.0"/>
+       
+      </node>
+
+
+     <include file= "$(find forklift_simulator)/launch/move_base.launch" >
+    </include>
+      <!--node pkg="forklift_simulator" type="publishOdom" name="publishOdom" /
+     
+       
+      <include file = "$(find multi_pallet_detection)/launch/pallet_detection.launch">
+      </include>
+      <node name="move_to_pallet" pkg="forklift_simulator" type="move_to_pallet" respawn="false" output="screen">
+        <remap from ="/pd_pallet_pose" to = "/RX20_16/pd_pallet_pose"/>
+        <remap from ="/move_base" to = "/RX20_16/move_base"/>
+      </node> -->
+
+    
+      <!--node name="joint_move" pkg="forklift_simulator" type="joint_move" respawn="false" output="screen">
+        <remap from ="/cmd_vel" to = "/RX20_16/mobile_base_controller/cmd_vel"/>
+        
+      </node>-->
+
+      
+       
+       
+      
+      <node name="rviz" pkg="rviz" type="rviz" 
+            args="-d $(find forklift_simulator)/rviz/simulator.rviz"/>
+        
+      <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" 
+        args="-urdf -param robot_description  -model forklift -y 0.0 -z 0.5  -gazebo_namespace /RX20_16/gazebo" />
+
+      
+   </group>
+
+  
+
+
+  </launch>
+  
+

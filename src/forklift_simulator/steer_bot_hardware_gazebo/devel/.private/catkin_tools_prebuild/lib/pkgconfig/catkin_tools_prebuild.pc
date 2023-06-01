@@ -1,0 +1,8 @@
+prefix=/home/hnk/auto_forklift_pallet_detection/src/forklift_simulator/steer_bot_hardware_gazebo/devel/.private/catkin_tools_prebuild
+
+Name: catkin_tools_prebuild
+Description: Description of catkin_tools_prebuild
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

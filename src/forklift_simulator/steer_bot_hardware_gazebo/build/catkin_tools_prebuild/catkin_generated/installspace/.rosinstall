@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/hnk/auto_forklift_pallet_detection/src/forklift_simulator/steer_bot_hardware_gazebo/install/setup.sh

@@ -2,10 +2,10 @@
 
 <robot name="RX20_16" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<xacro:macro name="rx20_steer_wheel" params="name x_steering y_steering z_steering radius width flip">
+<xacro:macro name="steer_wheel" params="name x_steering y_steering z_steering radius width flip">
  
 
-  <link name="wheel_${name}_steering_link">
+  <link name="${name}_steer_link">
     <inertial>
     <origin xyz="0 0 0.1125" rpy="0 0 0"/>
     <xacro:cylinder_inertia mass="1" r="0.05" l="0.225" />
@@ -27,9 +27,9 @@
     </visual>
   </link>
     
-  <joint name="wheel_${name}_steering_joint" type="revolute">
-    <parent link="base_link" />
-    <child link="wheel_${name}_steering_link" />
+    <joint name="${name}_steer_joint" type="revolute">
+      <parent link="base_link"/>
+      <child link="${name}_steer_link"/>
     <origin xyz="${x_steering} ${y_steering} ${z_steering }" rpy="0 0 1.57" />
     <!-- <origin xyz="-0.662 0.247 0.115" rpy="0 0 0" /> -->
     <axis xyz="0 0 ${1*flip}" />
@@ -37,7 +37,7 @@
      <dynamics damping="1" friction="1"/>
   </joint>
 
-  <link name="wheel_${name}_link">
+  <link name="${name}_wheel_link">
     <inertial>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <xacro:cylinder_inertia mass="0.5" r="${radius}" l="${width}" />
@@ -60,22 +60,22 @@
     </visual>
   </link>
     
-  <joint name="wheel_${name}_joint" type="continuous">
-    <parent link="wheel_${name}_steering_link" />
-    <child link="wheel_${name}_link" />
-    <origin xyz=" 0 0 -0.09" rpy="0 1.57 0" />
-    <axis xyz="0 0 1" />
+  <joint name="${name}_wheel_joint" type="continuous">
+      <parent link="${name}_steer_link"/>
+      <child link="${name}_wheel_link"/>
+    <origin xyz=" 0 0 -0.09" rpy="0 1.57 0"/>
+    <axis xyz="0 0 1"/>
     <!-- <joint_properties damping="1.0" friction="0.3"/> -->
-        <limit effort="100" velocity="100"/>
-     <dynamics damping="0.01" friction="0.0"/>
+        <limit effort="10" velocity="10"/>
+     <dynamics damping="0.01" friction="0.3"/>
   </joint>
 
   <transmission name="trans_steering_${name}">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="wheel_${name}_steering_joint">
+    <joint name="${name}_steer_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="motor_steering_wheel_${name}">
+    <actuator name="${name}_steer_joint_motor">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>

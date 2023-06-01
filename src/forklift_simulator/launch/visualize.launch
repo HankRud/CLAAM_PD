@@ -1,5 +1,8 @@
 <launch>
   <!-- Show in Rviz   -->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find forklift_simulator)/rviz/simulator.rviz"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find forklift_simulator)/rviz/simulator.rviz" >
+  <remap from = "cmd_vel" to = "RX20_16/mobile_base_controller/cmd_vel"/>
+
+  </node>
 
 </launch>

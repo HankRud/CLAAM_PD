@@ -3,7 +3,7 @@
   <arg name="template_dir" value="$(find multi_pallet_detection)/template/pallet1cell1cm.png"/>
 
   <node pkg="multi_pallet_detection" type="pallet_detection" name="pallet_detection" 
-    output = "screen" if="$(arg use_simulation)">
+    output = "screen" if="$(arg use_simulation)" >
     <param name="min_x_cutoff" value="-1.2"/>
     <param name="max_x_cutoff" value="1.2"/>
     <param name="min_y_cutoff" value="0.2"/>
@@ -52,11 +52,11 @@
     <param name="pallet_gt_x" value="3.349188"/>
     <param name="pallet_gt_y" value="-0.270627"/>
     <param name="pallet_gt_yaw" value="-0.270627"/>
-
+    <remap from = "odom" to = "RX20_16/odom"/>
   </node>
 
   <node pkg="multi_pallet_detection" type="pallet_detection" name="pallet_detection" 
-    output = "screen" unless="$(arg use_simulation)">
+    output = "screen" unless="$(arg use_simulation)" >
     <!-- Parameters for pointcloud cutoff -->
     <param name="min_x_cutoff" value="-1.2"/>
     <param name="max_x_cutoff" value="1.2"/>

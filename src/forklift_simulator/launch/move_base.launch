@@ -1,0 +1,42 @@
+<launch>
+  <arg name="no_static_map" default="true"/>
+
+
+  <include file="$(find forklift_simulator)/launch/acml.launch" />
+  <include file="$(find forklift_simulator)/launch/gmapping.launch" />
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen" > 
+    <param name="base_global_planner" value="global_planner"/>
+    <param name="base_local_planner" value="teb_local_planner/LocalPlannerROS" />   
+    <rosparam file="$(find forklift_simulator)/config/planner.yaml" command="load"/>
+    <rosparam file="$(find forklift_simulator)/config/costmap_common.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find forklift_simulator)/config/costmap_common.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find forklift_simulator)/config/costmap_local.yaml" command="load"/>
+    <rosparam file="$(find forklift_simulator)/config/global_planner_params.yaml" command="load"/>
+    <rosparam file="$(find forklift_simulator)/config/global_costmap.yaml" command="load"/>
+    <rosparam file="$(find forklift_simulator)/config/move_base_params.yaml" command="load"/>
+  
+    <!-- observation sources located in costmap_common.yaml -->
+    <param name="base_global_planner" value="global_planner/GlobalPlanner" />
+    <param name="planner_frequency" value="1.0" />
+    <param name="planner_patience" value="5.0" />
+
+    <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+    <param name="controller_frequency" value="10.0" />
+    <param name="controller_patience" value="15.0" />
+
+    <rosparam file="$(find forklift_simulator)/config/costmap_local.yaml" command="load" ns="local_costmap" />
+    <param name="local_costmap/width" value="10.0"/>
+    <param name="local_costmap/height" value="10.0"/>
+
+    <!-- global costmap with laser, for odom_navigation_demo -->
+    <rosparam file="$(find forklift_simulator)/config/global_costmap.yaml" command="load" ns="global_costmap" if="$(arg no_static_map)"/>
+    <param name="global_costmap/width" value="200.0" if="$(arg no_static_map)"/>
+    <param name="global_costmap/height" value="200.0" if="$(arg no_static_map)"/>
+
+    <param name="clearing_rotation_allowed" value="false" /> 
+  
+    <remap from = "cmd_vel" to= "/RX20_16/mobile_base_controller/cmd_vel"/>
+
+  </node>
+</launch>

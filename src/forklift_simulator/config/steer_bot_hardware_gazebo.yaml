@@ -1,0 +1,26 @@
+steer_bot_hardware_gazebo:
+  rear_wheel  : 'front_wheel_joint'
+  front_steer : 'rear_steer_joint'
+
+  virtual_rear_wheels: ['wheel_front_left_driving_joint', 'wheel_front_right_driving_joint']
+  virtual_front_wheels: ['rear_left_wheel_joint', 'rear_right_wheel_joint']
+  virtual_front_steers: ['rear_left_steer_joint','rear_right_steer_joint']
+
+  wheel_separation_h : 0.215
+  wheel_separation_w : 0.2858
+
+  enable_ackermann_link : true
+
+wheel_front_right_driving_joint:
+    p: 1000000.0
+    d: 10.0
+    i: 0.50
+    i_clamp: 3.0
+wheel_front_left_driving_joint:
+    p: 1000000.0
+    d: 10.0
+    i: 0.50
+    i_clamp: 3.0
+
+
+  

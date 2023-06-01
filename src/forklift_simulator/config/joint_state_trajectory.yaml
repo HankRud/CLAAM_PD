@@ -1,0 +1,5 @@
+publisher:
+  publish_rate: 50  # Adjust the publish rate as needed
+
+subscriber:
+  buffer_size: 100  # Adjust the buffer size as needed

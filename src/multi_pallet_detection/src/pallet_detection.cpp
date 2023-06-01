@@ -197,7 +197,7 @@ public:
         paramGet.param<double>("pallet_gt_yaw", pallet_gt_yaw_, 0.02);
 
         /* ROS Subscriber */
-        sub_point_cloud_ = nh_.subscribe<sensor_msgs::PointCloud2>("/camera/depth/color/points", 1, 
+        sub_point_cloud_ = nh_.subscribe<sensor_msgs::PointCloud2>("/RX20_16/camera/depth/color/points", 1, 
                                                         &PalletDetection::pointCloudCallback, this);
 
         /* ROS Publisher */
@@ -722,7 +722,7 @@ public:
                         tf2_ros::Buffer tf_buffer;
                         tf2_ros::TransformListener listener(tf_buffer);
 
-                        std::string target_link = "odom";
+                        std::string target_link = "base_link";
 
                         try
                         {
