@@ -1,2 +1,2 @@
-# auto_forklift_pallet_detection
-Pallet Detection for the autonomous forklift based on ROS and PCL library
+# FLAAM_PD- Forklift Autonomous Ackerman Motion and Pallet Detection 
+ An integration of the RX20_16 robot from cuong313/auto_
