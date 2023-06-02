@@ -15,19 +15,45 @@
     <build_depend>roscpp</build_depend>
     <build_depend>rospy</build_depend>
     <build_depend>std_msgs</build_depend>
+    <build_depend> tf </build_depend>
+    <build_depend> nav_msgs</build_depend>
+     <build_depend>actionlib_msgs</build_depend>
+     <build_depend> tf2 </build_depend>
   
+    <run_depend>ackermann_steering_controller</run_depend>
+    <run_depend>geometry_msgs</run_depend>
     <run_depend>gazebo_plugins</run_depend>
+    <run_depend>gazebo_ros_control</run_depend>
     <run_depend>gazebo_ros</run_depend>
     <run_depend>gazebo_ros_control</run_depend>  
     <run_depend>joint_state_publisher</run_depend>
     <run_depend>robot_state_publisher</run_depend>
+    <run_depend>ros_control</run_depend>
+    <run_depend>ros_controllers</run_depend>
+    <run_depend>controller_manager</run_depend>
     <run_depend>rviz</run_depend>
     <run_depend>xacro</run_depend>
+    <run_depend>move_base</run_depend>
+    <run_depend>move_base_msgs</run_depend>
     <run_depend>rosconsole</run_depend>
     <run_depend>roscpp</run_depend>
     <run_depend>rospy</run_depend>
-    <!-- <run_depend>roslaunch</run_depend> -->
+    <run_depend>roslaunch</run_depend> 
     <run_depend>std_msgs</run_depend>
+    <run_depend> tf </run_depend>
+    <run_depend> tf2 </run_depend>
+    <run_depend>teb_local_planner</run_depend>
+    <run_depend>steer_bot_hardware_gazebo</run_depend>
+   
+    <run_depend> nav_msgs</run_depend>
+    <run_depend> gmapping</run_depend>
+   
+    <run_depend>actionlib_msgs</run_depend>
+
+
+    <export>
+    <nav_core plugin="${prefix}/lp_plugin.xml"/>
+   </export>
 
 </package>
   

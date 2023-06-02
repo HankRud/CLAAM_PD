@@ -10,7 +10,7 @@
     <include>
         <static>false</static>
         <uri>model://pallet</uri>
-        <pose> 5 0.0 0 0 0 0</pose>
+        <pose> 3 0.0 0 0 0 0</pose>
       </include>
     <!-- Global light source -->
     <include>

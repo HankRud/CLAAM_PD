@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/hnk/auto_forklift_pallet_detection/install/lib;/opt/ros/noetic/lib)
+    foreach(path /home/hnk/auto_forklift_pallet_detection/install/lib;/home/hnk/auto_forklift_pallet_detection/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -177,7 +177,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(forklift_simulator_EXPORTED_TARGETS "")
+set(forklift_simulator_EXPORTED_TARGETS "forklift_simulator_generate_messages_cpp;forklift_simulator_generate_messages_eus;forklift_simulator_generate_messages_lisp;forklift_simulator_generate_messages_nodejs;forklift_simulator_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${forklift_simulator_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -214,7 +214,7 @@ foreach(depend ${depends})
   _list_append_deduplicate(forklift_simulator_EXPORTED_TARGETS ${${forklift_simulator_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "forklift_simulator-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${forklift_simulator_DIR}/${extra})

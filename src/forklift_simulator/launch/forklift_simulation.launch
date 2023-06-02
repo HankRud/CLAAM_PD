@@ -40,6 +40,7 @@
           rear_right_steer_joint_controller
           wheel_front_left_driving_joint_controller
           wheel_front_right_driving_joint_controller"
+        
         respawn ="false" output="screen"/>
 
    
@@ -51,8 +52,7 @@
 
      <include file= "$(find forklift_simulator)/launch/move_base.launch" >
     </include>
-      <!--node pkg="forklift_simulator" type="publishOdom" name="publishOdom" /-->
-      
+     
       
       <include file = "$(find multi_pallet_detection)/launch/pallet_detection.launch" >
        </include> 

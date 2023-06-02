@@ -30,8 +30,8 @@
     type: effort_controllers/JointPositionController
     joint: rear_left_steer_joint
     pid: 
-       p: 3.0 
-       i: 0.2
+       p: 4.0 
+       i: 0.01
        d: 1.0
        
 
@@ -39,8 +39,8 @@
     type: effort_controllers/JointPositionController
     joint: rear_right_steer_joint
     pid:  
-      p: 3.0 
-      i: 0.2
+      p: 4.0 
+      i: 0.01
       d: 1.0
       
   wheel_front_left_driving_joint_controller:
