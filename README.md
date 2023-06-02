@@ -1,4 +1,4 @@
-# FLAAM_PD- Forklift Autonomous Ackerman Motion and Pallet Detection 
+# CLAAM_PD- Counterbalanced Loader Autonomous Ackerman Motion and Pallet Detection 
  An integration of :
  -RX20_16 robot and multi_pallet_detection from https://github.com/cuongng313/auto_forklift_pallet_detection
  -ROS navigation https://github.com/ros-planning/navigation
