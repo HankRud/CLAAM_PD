@@ -15,11 +15,11 @@
  
  Install dependencies
  
- rosdep install
+ rosdep install --from-paths src -y 
 
- git clone https://github.com/pal-robotics/realsense_gazebo_plugin.git
-
- build your workspace with catkin_make
+ build your workspace with 
+ 
+ catkin_make
 
 
 # SOURCE
