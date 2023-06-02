@@ -13,6 +13,7 @@ src/forklift_simulator/steer_bot_hardware_gazebo/logs/catkin_tools_prebuild/buil
 src/forklift_simulator/steer_bot_hardware_gazebo/logs/catkin_tools_prebuild/build.symlink.log
 build/CMakeCache.txt
 build/Makefile
+build/
 build/CMakeFiles/CMakeRuleHashes.txt
 build/CMakeFiles/Makefile.cmake
 build/CMakeFiles/Makefile2
@@ -942,3 +943,12 @@ devel/share/steer_drive_controller/cmake/steer_drive_controllerConfig-version.cm
 devel/share/steer_drive_controller/cmake/steer_drive_controllerConfig.cmake
 devel/share/stepback_and_steerturn_recovery/cmake/stepback_and_steerturn_recoveryConfig-version.cmake
 devel/share/stepback_and_steerturn_recovery/cmake/stepback_and_steerturn_recoveryConfig.cmake
+.catkin_workspace
+.vscode/c_cpp_properties.json
+build/catkin_make.cache
+build/catkin_make.cache
+.gitignore
+build/catkin_make.cache
+build/CTestTestfile.cmake
+build/catkin_make.cache
+build/catkin_make.cache
