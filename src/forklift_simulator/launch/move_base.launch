@@ -29,7 +29,6 @@
     <param name="local_costmap/width" value="10.0"/>
     <param name="local_costmap/height" value="10.0"/>
 
-    <!-- global costmap with laser, for odom_navigation_demo -->
     <rosparam file="$(find forklift_simulator)/config/global_costmap.yaml" command="load" ns="global_costmap" if="$(arg no_static_map)"/>
     <param name="global_costmap/width" value="200.0" if="$(arg no_static_map)"/>
     <param name="global_costmap/height" value="200.0" if="$(arg no_static_map)"/>

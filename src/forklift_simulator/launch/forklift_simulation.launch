@@ -30,7 +30,7 @@
       <!--node name="map_server" pkg="map_server" type="map_server" args="map_file_path" />-->
    
       <!-- Load joint controller configurations from YAML file to parameter server -->
-      <rosparam file="$(find forklift_simulator)/config/steer_bot_hardware_gazebo.yaml" command="load" ns="/RX20_16"/> 
+      <!--rosparam file="$(find forklift_simulator)/config/steer_bot_hardware_gazebo.yaml" command="load" ns="/RX20_16"/--> 
       <rosparam file="$(find forklift_simulator)/config/ackerman_steer.yaml" command="load" ns="/RX20_16"/>  
       <rosparam file="$(find forklift_simulator)/config/pids.yaml" command="load" ns="/RX20_16"/> 
       <rosparam file="$(find forklift_simulator)/config/RX20_16_control.yaml" command="load" ns="/RX20_16"/>
