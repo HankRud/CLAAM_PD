@@ -12,21 +12,21 @@
 
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
-// Global variables to store the pallet pose
+
 double pallet_x = 0.0;
 double pallet_y = 0.0;
 double pallet_theta = 0.0;
 
-// Callback function to update the pallet pose
+
 void palletPoseCallback(const geometry_msgs::PoseStamped::ConstPtr& msg)
 {
-  // Update the pallet pose
+ 
   pallet_x = msg->pose.position.x;
   pallet_y = msg->pose.position.y;
   pallet_theta = msg->pose.position.z;
 }
 
-// Function to send joint trajectory commands
+
 
 
 int main(int argc, char** argv)
@@ -35,7 +35,6 @@ int main(int argc, char** argv)
 
   ros::NodeHandle nh;
   ros::Subscriber pallet_pose_sub = nh.subscribe<geometry_msgs::PoseStamped>("/pd_pallet_pose", 10, palletPoseCallback);
-  //ros::Publisher cmd_vel_pub = nh.advertise<geometry_msgs::Twist>("/cmd_vel", 10);
   tf2_ros::Buffer tfBuffer;
   tf2_ros::TransformListener tfListener(tfBuffer);
 
@@ -48,7 +47,7 @@ int main(int argc, char** argv)
   
 
 
-  ros::Rate rate(10);  // Control loop rate (10 Hz)
+  ros::Rate rate(10);  
 
   while (ros::ok())
   {
@@ -82,7 +81,7 @@ int main(int argc, char** argv)
         ROS_WARN("Failed to reach the pallet...");
       }
 
-      // Reset the pallet pose to prevent repetitive goal sending
+      // Reset the pallet pose
       pallet_x = 0.0;
       pallet_y = 0.0;
     }
