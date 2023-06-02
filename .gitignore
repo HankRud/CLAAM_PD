@@ -1,3 +1,5 @@
+build
+devel
 src/forklift_simulator/steer_bot_hardware_gazebo/logs/catkin_tools_prebuild/build.cache-manifest.000.log
 src/forklift_simulator/steer_bot_hardware_gazebo/logs/catkin_tools_prebuild/build.cache-manifest.log
 src/forklift_simulator/steer_bot_hardware_gazebo/logs/catkin_tools_prebuild/build.cmake.000.log
@@ -957,3 +959,4 @@ build/catkin_make.cache
 .gitignore
 build/catkin_make.cache
 devel/
+build/catkin_make.cache
