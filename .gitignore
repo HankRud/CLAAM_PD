@@ -952,3 +952,8 @@ build/catkin_make.cache
 build/CTestTestfile.cmake
 build/catkin_make.cache
 build/catkin_make.cache
+build/catkin_make.cache
+build/catkin_make.cache
+.gitignore
+build/catkin_make.cache
+devel/
