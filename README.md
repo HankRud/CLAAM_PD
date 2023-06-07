@@ -1,9 +1,15 @@
 # CLAAM_PD- Counterbalanced Loader Autonomous Ackerman Motion and Pallet Detection 
  An integration of :
  -RX20_16 robot and multi_pallet_detection from https://github.com/cuongng313/auto_forklift_pallet_detection
- -ROS navigation https://github.com/ros-planning/navigation
- -ackerman_steering_controller https://github.com/ros-controls/ros_controllers
- -https://github.com/rst-tu-dortmund/teb_local_planner
+ 
+ -ROS navigation:
+ https://github.com/ros-planning/navigation
+ 
+ -ackerman_steering_controller:
+ https://github.com/ros-controls/ros_controllers
+ 
+ -Teb-local-planner:
+ https://github.com/rst-tu-dortmund/teb_local_planner
 
 
 # INSTALL
